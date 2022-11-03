@@ -1,0 +1,54 @@
+type Order {
+  _id: ID
+  status: String!
+  total: Int!
+  products: [OrderedProduct!]!
+  orderBy: User!
+  assignee: User
+  history: [OrderHistory]
+  createdAt: String
+  updatedAt: String
+}
+
+type OrderedProduct {
+  product: Product!
+  quantity: Int!
+}
+
+type OrderHistory {
+  status: String
+  changedAt: String
+}
+
+input OrderedProductInput {
+  product: ID!
+  quantity: Int!
+}
+
+input CreateOrderInput {
+  status: String
+  total: Int!
+  products: [OrderedProductInput!]!
+  orderBy: ID!
+  assignee: ID
+}
+
+input UpdateOrderInput {
+  _id: ID!
+  status: String
+  total: Int
+  products: [OrderedProductInput]
+  orderBy: ID
+  assignee: ID
+}
+
+type Query {
+  orders: [Order]!
+  order(_id: ID!): Order
+}
+
+type Mutation {
+  createOrder(createOrderInput: CreateOrderInput!): Order!
+  updateOrder(updateOrderInput: UpdateOrderInput!): Order!
+  removeOrder(_id: ID!): Order
+}

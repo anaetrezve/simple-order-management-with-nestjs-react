@@ -1,0 +1,19 @@
+{
+  "extends": ["wesbos/typescript"],
+  "rules": {
+    "no-console": 1,
+    "prettier/prettier": [
+      "error",
+      {
+        "trailingComma": "es5",
+        "singleQuote": true,
+        "printWidth": 120,
+        "tabWidth": 2
+      }
+    ],
+    "@typescript-eslint/no-unsafe-assignment": 0,
+    "@typescript-eslint/no-unsafe-call": 0,
+    "@typescript-eslint/no-unsafe-member-access": 0,
+    "@typescript-eslint/restrict-template-expressions": 0
+  }
+}
